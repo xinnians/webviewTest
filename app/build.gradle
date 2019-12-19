@@ -10,7 +10,7 @@ android {
         applicationId "com.ufistudio.ianlin.webviewtest"
         minSdkVersion 26
         targetSdkVersion 29
-        versionCode 1
+        versionCode 102
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -23,6 +23,82 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    ext{
+        APP_NAME_DEV = "@string/app_name_dev"
+        APP_NAME_QAT = "@string/app_name_qat"
+        APP_NAME_UAT = "@string/app_name_uat"
+        APP_NAME = "@string/app_name"
+    }
+
+    flavorDimensions "platform", "environment"
+    productFlavors{
+
+        //-----------------------------------平台----------------------------------------
+
+        //愛瑪
+        demo01 {
+            dimension "platform"
+            applicationId "com.yj.demo01"
+
+            buildConfigField("String","DEV_URL","\"\"")
+            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
+            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
+            buildConfigField("String","PROD_URL","\"\"")
+        }
+
+        //億客隆
+        ykl {
+            dimension "platform"
+            applicationId "com.yj.ykl"
+
+            buildConfigField("String","DEV_URL","\"\"")
+            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
+            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
+            buildConfigField("String","PROD_URL","\"\"")
+        }
+
+        //眾彩
+        zcyl {
+            dimension "platform"
+            applicationId "com.yj.zcyl"
+
+            buildConfigField("String","DEV_URL","\"\"")
+            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-zcyl_gulp.yjxyz.xyz/\"")
+            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-zcyl_gulp.yjxyz.xyz/\"")
+            buildConfigField("String","PROD_URL","\"\"")
+        }
+
+        //-----------------------------------環境----------------------------------------
+
+        prod {
+            dimension "environment"
+            applicationIdSuffix ".prod"
+            versionNameSuffix "-prod"
+            manifestPlaceholders = [ applicationLabel: APP_NAME]
+        }
+
+        uat {
+            dimension "environment"
+            applicationIdSuffix ".uat"
+            versionNameSuffix "-uat"
+            manifestPlaceholders = [ applicationLabel: APP_NAME_UAT]
+        }
+
+        qat {
+            dimension "environment"
+            applicationIdSuffix ".qat"
+            versionNameSuffix "-qat"
+            manifestPlaceholders = [ applicationLabel: APP_NAME_QAT]
+        }
+
+        dev {
+            dimension "environment"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            manifestPlaceholders = [ applicationLabel: APP_NAME_DEV]
+        }
     }
 }
 

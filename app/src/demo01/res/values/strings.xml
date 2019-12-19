@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name_dev">愛碼-DEV</string>
+    <string name="app_name_qat">愛碼-QAT</string>
+    <string name="app_name_uat">愛碼-UAT</string>
+    <string name="app_name">愛碼</string>
+</resources>

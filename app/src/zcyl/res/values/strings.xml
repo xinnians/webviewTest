@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name_dev">众彩-DEV</string>
+    <string name="app_name_qat">众彩-QAT</string>
+    <string name="app_name_uat">众彩-UAT</string>
+    <string name="app_name">众彩</string>
+</resources>
