@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name_qat">尊龍-QAT</string>
+    <string name="app_name_uat">尊龍-UAT</string>
+    <string name="app_name">尊龍</string>
+</resources>
