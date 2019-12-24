@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name_qat">樂巢-QAT</string>
+    <string name="app_name_uat">樂巢-UAT</string>
+    <string name="app_name">樂巢</string>
+</resources>

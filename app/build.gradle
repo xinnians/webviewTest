@@ -5,10 +5,18 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('../signkey/releasekey')
+            storePassword '00000000'
+            keyAlias = 'YJAndroidKey'
+            keyPassword '00000000'
+        }
+    }
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.ufistudio.ianlin.webviewtest"
-        minSdkVersion 26
+        applicationId "com.yj.platform"
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 102
         versionName "1.0"
@@ -18,6 +26,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -26,7 +35,6 @@ android {
     }
 
     ext{
-        APP_NAME_DEV = "@string/app_name_dev"
         APP_NAME_QAT = "@string/app_name_qat"
         APP_NAME_UAT = "@string/app_name_uat"
         APP_NAME = "@string/app_name"
@@ -42,7 +50,6 @@ android {
             dimension "platform"
             applicationId "com.yj.demo01"
 
-            buildConfigField("String","DEV_URL","\"\"")
             buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
             buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
             buildConfigField("String","PROD_URL","\"\"")
@@ -53,7 +60,6 @@ android {
             dimension "platform"
             applicationId "com.yj.ykl"
 
-            buildConfigField("String","DEV_URL","\"\"")
             buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
             buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
             buildConfigField("String","PROD_URL","\"\"")
@@ -64,9 +70,48 @@ android {
             dimension "platform"
             applicationId "com.yj.zcyl"
 
-            buildConfigField("String","DEV_URL","\"\"")
             buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-zcyl_gulp.yjxyz.xyz/\"")
             buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-zcyl_gulp.yjxyz.xyz/\"")
+            buildConfigField("String","PROD_URL","\"\"")
+        }
+
+        //樂巢
+        lcyl {
+            dimension "platform"
+            applicationId "com.yj.lcyl"
+
+            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-lcyl_gulp.yjxyz.xyz/\"")
+            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-lcyl_gulp.yjxyz.xyz/\"")
+            buildConfigField("String","PROD_URL","\"\"")
+        }
+
+        //大時代
+        dsd {
+            dimension "platform"
+            applicationId "com.yj.dsd"
+
+            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-dsd.yjxyz.xyz/?v_c=1\"")
+            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-dsd.yjxyz.xyz/?v_c=1\"")
+            buildConfigField("String","PROD_URL","\"\"")
+        }
+
+        //新火
+        bh {
+            dimension "platform"
+            applicationId "com.yj.bh"
+
+            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-bh.yjxyz.xyz/\"")
+            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-bh.yjxyz.xyz/\"")
+            buildConfigField("String","PROD_URL","\"\"")
+        }
+
+        //尊龍
+        jlyl {
+            dimension "platform"
+            applicationId "com.yj.jlyl"
+
+            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-jlyl.yjxyz.xyz/\"")
+            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-jlyl.yjxyz.xyz/\"")
             buildConfigField("String","PROD_URL","\"\"")
         }
 
@@ -91,13 +136,6 @@ android {
             applicationIdSuffix ".qat"
             versionNameSuffix "-qat"
             manifestPlaceholders = [ applicationLabel: APP_NAME_QAT]
-        }
-
-        dev {
-            dimension "environment"
-            applicationIdSuffix ".dev"
-            versionNameSuffix "-dev"
-            manifestPlaceholders = [ applicationLabel: APP_NAME_DEV]
         }
     }
 }

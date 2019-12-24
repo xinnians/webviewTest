@@ -221,7 +221,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         val url = when(FLAVOR_environment){
-            "dev" -> DEV_URL
             "qat" -> QAT_URL
             "uat" -> UAT_URL
             "prod" -> PROD_URL
