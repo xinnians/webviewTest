@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name_qat">新火-QAT</string>
+    <string name="app_name_uat">新火-UAT</string>
+    <string name="app_name">新火</string>
+</resources>
