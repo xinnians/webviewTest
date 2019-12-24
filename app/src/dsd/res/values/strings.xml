@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name_qat">大時代-QAT</string>
+    <string name="app_name_uat">大時代-UAT</string>
+    <string name="app_name">大時代</string>
+</resources>
