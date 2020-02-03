@@ -15,12 +15,14 @@ android {
     }
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.yj.platform"
+        applicationId "com.platform"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 102
+        versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String","URL","\""+MERCHANTURL+"\"")
     }
     buildTypes {
         release {
@@ -34,12 +36,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    ext{
-        APP_NAME_QAT = "@string/app_name_qat"
-        APP_NAME_UAT = "@string/app_name_uat"
-        APP_NAME = "@string/app_name"
-    }
-
     flavorDimensions "platform", "environment"
     productFlavors{
 
@@ -48,71 +44,43 @@ android {
         //愛瑪
         demo01 {
             dimension "platform"
-            applicationId "com.yj.demo01"
-
-            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
-            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
-            buildConfigField("String","PROD_URL","\"\"")
+            applicationId "com.demo01"
         }
 
         //億客隆
         ykl {
             dimension "platform"
-            applicationId "com.yj.ykl"
-
-            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
-            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-demo01_gulp.yjxyz.xyz/\"")
-            buildConfigField("String","PROD_URL","\"\"")
+            applicationId "com.ykl"
         }
 
         //眾彩
         zcyl {
             dimension "platform"
-            applicationId "com.yj.zcyl"
-
-            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-zcyl_gulp.yjxyz.xyz/\"")
-            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-zcyl_gulp.yjxyz.xyz/\"")
-            buildConfigField("String","PROD_URL","\"\"")
+            applicationId "com.zcyl"
         }
 
         //樂巢
         lcyl {
             dimension "platform"
-            applicationId "com.yj.lcyl"
-
-            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-lcyl_gulp.yjxyz.xyz/\"")
-            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-lcyl_gulp.yjxyz.xyz/\"")
-            buildConfigField("String","PROD_URL","\"\"")
+            applicationId "com.lcyl"
         }
 
         //大時代
         dsd {
             dimension "platform"
-            applicationId "com.yj.dsd"
-
-            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-dsd.yjxyz.xyz/?v_c=1\"")
-            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-dsd.yjxyz.xyz/?v_c=1\"")
-            buildConfigField("String","PROD_URL","\"\"")
+            applicationId "com.dsd"
         }
 
         //新火
         bh {
             dimension "platform"
-            applicationId "com.yj.bh"
-
-            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-bh.yjxyz.xyz/\"")
-            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-bh.yjxyz.xyz/\"")
-            buildConfigField("String","PROD_URL","\"\"")
+            applicationId "com.bh"
         }
 
         //尊龍
         jlyl {
             dimension "platform"
-            applicationId "com.yj.jlyl"
-
-            buildConfigField("String","QAT_URL","\"https://nf-qat-frontend-mobile-jlyl.yjxyz.xyz/\"")
-            buildConfigField("String","UAT_URL","\"https://nf-uat-frontend-mobile-jlyl.yjxyz.xyz/\"")
-            buildConfigField("String","PROD_URL","\"\"")
+            applicationId "com.jlyl"
         }
 
         //-----------------------------------環境----------------------------------------
@@ -120,24 +88,25 @@ android {
         prod {
             dimension "environment"
             applicationIdSuffix ".prod"
-            versionNameSuffix "-prod"
-            manifestPlaceholders = [ applicationLabel: APP_NAME]
+            manifestPlaceholders = [ applicationLabel: MERCHANT]
         }
 
         uat {
             dimension "environment"
             applicationIdSuffix ".uat"
-            versionNameSuffix "-uat"
-            manifestPlaceholders = [ applicationLabel: APP_NAME_UAT]
+            manifestPlaceholders = [ applicationLabel: MERCHANT+"-UAT"]
         }
 
         qat {
             dimension "environment"
             applicationIdSuffix ".qat"
-            versionNameSuffix "-qat"
-            manifestPlaceholders = [ applicationLabel: APP_NAME_QAT]
+            manifestPlaceholders = [ applicationLabel: MERCHANT+"-QAT"]
         }
     }
+}
+
+def transform(String targetStr) {
+    return new String(targetStr.getBytes("iso8859-1"), "UTF-8")
 }
 
 dependencies {

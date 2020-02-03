@@ -220,12 +220,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val url = when(FLAVOR_environment){
-            "qat" -> QAT_URL
-            "uat" -> UAT_URL
-            "prod" -> PROD_URL
-            else -> ""
-        }
+        val url = URL
 
         webview.loadUrl(url)
     }
