@@ -83,6 +83,12 @@ android {
             applicationId "com.jlyl"
         }
 
+        //新鳳凰
+        xfh {
+            dimension "platform"
+            applicationId "com.xfh"
+        }
+
         //-----------------------------------環境----------------------------------------
 
         prod {
